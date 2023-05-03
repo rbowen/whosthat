@@ -2,10 +2,11 @@
 use strict;
 use warnings;
 use WhosThat;
-use Text::Markdown;
+use YAML::Tiny;
 use Data::Dumper;
 
-my $script = shift @ARGV;
+my @args = @ARGV;
+print Dumper( @args );
 
 print "Data is in $DATA\n";
 
@@ -19,20 +20,17 @@ while (my $whofile = readdir(DIR)) {
     print "$whofile\n";
 
     # slurp
-    my $content;
-    open(my $fh, '<', $DATA . '/who/' . $whofile) or die "cannot open file $DATA/who/$whofile";
+    my $who = YAML::Tiny->read( $DATA . '/who/' . $whofile );
+
+    # Is this who we're looking for?
+    if (    # Name
+        $who->[0]->{name} =~ /@args/i
+        ||    #Email
+        $who->[0]->{email} =~ /@args/i
+      )
     {
-        local $/;
-        $content = <$fh>;
+        print Dumper($who);
     }
-    close($fh);
-
-    # Parse it
-    my $m = Text::Markdown->new;
-    my $who = $m->markdown($content);
-
-
-    print Dumper( $who );
 }
 
 closedir(DIR);
