@@ -30,9 +30,9 @@ EOW
         foreach my $p ( @{$who->{projects}} ) {
             my $proj = WhosThat->loadproject( $p );
             if ( $proj ) {
-            print "\t" . $proj->{name} ."\n";
+                print "\t" . $proj->{name} ."\n";
             } else {
-            print "\t" . $p . "\n";
+                print "\t" . $p . "\n" unless $p =~/fixme/;
             }
         }
 
