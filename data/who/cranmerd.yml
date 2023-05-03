@@ -5,5 +5,5 @@ notes: Notes
 projects:
   - flink
 services:
-  - fixme
+  - msf
 title:  Principal Engineer, AWS Kinesis Data Analytics

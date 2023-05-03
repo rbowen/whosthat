@@ -25,6 +25,16 @@ whoworkson <name>
 Will look for either a SERVICE or a PROJECT called *name* and tell you
 who works on that.
 
+addwho --name "Barney Rubble" --alias brubble
+or
+addwho -n "Barney Rubble" -a brubble
+
+Adds a new record for that invidual
+
+editwho brubble
+
+Edit their data file.
+
 ## Install
 
 perl Makefile.PL
