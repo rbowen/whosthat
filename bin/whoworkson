@@ -24,7 +24,7 @@ if ( my $proj = WhosThat->loadproject($what) ) {
         }
     }
 } else {
-    print "Didn't find a project or service named that.\n";
+    print "Didn't find a project, service, or team named that.\n";
 }
 
 sub usage {

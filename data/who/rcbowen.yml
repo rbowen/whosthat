@@ -5,6 +5,7 @@
  projects:
   - httpd
  services:
+  - ossm
  notes: |
    Notes go here
    And here
