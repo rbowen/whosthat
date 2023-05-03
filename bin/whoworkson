@@ -26,6 +26,7 @@ if ( my $proj = WhosThat->loadproject($what) ) {
 } else {
     print "Didn't find a project, service, or team named that.\n";
 }
+print "\n";
 
 sub usage {
     print "Usage:\n\t$0 project_or_service_name\n";
@@ -35,9 +36,13 @@ sub usage {
 sub displaywho {
     my $who = shift;
 
-    print $who->{name} . " " . $who->{email};
+    print "\n" . $who->{name} . "\n"; 
+    print $who->{email};
     if ( $who->{alias} ) {
         print ' - ' . $who->{phonetool};
+    }
+    if (defined($who->{title}) && ($who->{title} !~ /fixme/)) {
+        print "\n" .$who->{title};
     }
     print "\n";
 }
