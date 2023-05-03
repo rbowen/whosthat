@@ -9,8 +9,8 @@ WriteMakefile(
     AUTHOR        => 'rbowen <rbowen@rcbowen.com>',
     LICENSE       => 'apache',
     EXE_FILES     => [
-        qw(bin/whosthat bin/whoworkson bin/addwho
-          bin/editwho )
+        qw(bin/whosthat bin/whoworkson
+          bin/addwho bin/editwho )
     ],
 );
 

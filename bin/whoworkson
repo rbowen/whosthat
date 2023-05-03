@@ -19,7 +19,7 @@ if ( my $proj = WhosThat->loadproject($what) ) {
 # ... or a service?
 } elsif ( my $service = WhosThat->loadservice($what) ) {
     foreach my $who (@peeps) {
-        if ( grep( $what, @{$who->{services}} ) ) {
+        if ( grep( /$what/i, @{$who->{services}} ) ) {
             displaywho($who);
         }
     }
