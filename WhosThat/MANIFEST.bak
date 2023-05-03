@@ -1,7 +1,0 @@
-bin/whosthat
-Changes
-lib/WhosThat.pm
-Makefile.PL
-MANIFEST
-README
-t/WhosThat.t
