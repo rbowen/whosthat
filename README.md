@@ -4,7 +4,7 @@ Barebones CRM for tracking people, projects, and AWS service teams.
 
 With any luck, it will do more, eventually.
 
-## Usage:
+## Usage
 
 whosthat <name>
 
@@ -19,4 +19,15 @@ And there should be a simple web interface, on twist.rcbowen.com, where
 I can browse people, projects and services. Eventually. Not today.
 
 Ok, go.
+
+## Install
+
+cd WhosThat;
+perl Makefile.PL
+make
+make test
+make install
+make clean
+cd ..
+
 

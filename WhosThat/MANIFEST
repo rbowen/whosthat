@@ -4,4 +4,5 @@ lib/WhosThat.pm
 Makefile.PL
 MANIFEST
 README
+README.md
 t/WhosThat.t

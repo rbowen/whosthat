@@ -15,17 +15,22 @@ our @ISA = qw(Exporter);
 # This allows declaration	use WhosThat ':all';
 # If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
 # will save memory.
-our %EXPORT_TAGS = ( 'all' => [ qw(
-	
-) ] );
+our %EXPORT_TAGS = (
+    'all' => [
+        qw(
+
+        )
+    ]
+);
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-	
+
 );
 
 our $VERSION = '0.01';
+our $DATA    = '/home/rbowen/whosthat/data';
 
 # Preloaded methods go here.
 
