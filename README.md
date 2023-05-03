@@ -22,12 +22,8 @@ Ok, go.
 
 ## Install
 
-cd WhosThat;
 perl Makefile.PL
 make
 make test
 make install
-make clean
-cd ..
-
 

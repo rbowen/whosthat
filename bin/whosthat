@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use WhosThat;
+use Text::Markdown;
+use Data::Dumper;
+
+my $script = shift @ARGV;
+
+print "Data is in $DATA\n";
+
+# Check all of the people we know
+my $whodir = $DATA . '/who';
+opendir(DIR, $whodir) or die "Could not open $whodir\n";
+
+while (my $whofile = readdir(DIR)) {
+    next if $whofile =~ m/^\./;
+    next if $whofile =~ m/template/;
+    print "$whofile\n";
+
+    # slurp
+    my $content;
+    open(my $fh, '<', $DATA . '/who/' . $whofile) or die "cannot open file $DATA/who/$whofile";
+    {
+        local $/;
+        $content = <$fh>;
+    }
+    close($fh);
+
+    # Parse it
+    my $m = Text::Markdown->new;
+    my $who = $m->markdown($content);
+
+
+    print Dumper( $who );
+}
+
+closedir(DIR);
+
+
