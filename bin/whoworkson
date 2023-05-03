@@ -3,14 +3,14 @@ use strict;
 use warnings;
 use WhosThat;
 
-my $what = $ARGV[0];
+my $what = lc($ARGV[0]);
 usage() unless $what;
 my @peeps = WhosThat::listwho();
 
 # Is that a project?
 if ( my $proj = WhosThat->loadproject($what) ) {
     foreach my $who (@peeps) {
-        if ( grep( $who->{projects}, $what ) ) {
+        if ( grep( $what, $who->{projects} ) ) {
             displaywho($who);
         }
     }
@@ -18,7 +18,7 @@ if ( my $proj = WhosThat->loadproject($what) ) {
 # ... or a service?
 } elsif ( my $service = WhosThat->loadservice($what) ) {
     foreach my $who (@peeps) {
-        if ( grep( $who->{services}, $what ) ) {
+        if ( grep( $what, $who->{services} ) ) {
             displaywho($who);
         }
     }

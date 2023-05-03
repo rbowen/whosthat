@@ -8,6 +8,6 @@ WriteMakefile(
     ABSTRACT_FROM => 'lib/WhosThat.pm',    # retrieve abstract from module
     AUTHOR        => 'rbowen <rbowen@rcbowen.com>',
     LICENSE       => 'apache',
-    EXE_FILES     => [qw(bin/whosthat bin/whoworkson)],
+    EXE_FILES     => [qw(bin/whosthat bin/whoworkson bin/addwho )],
 );
 

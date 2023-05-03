@@ -49,6 +49,7 @@ sub listwho {
         # Required fields
         $w->[0]->{name} ||= 'UNNAMED';
         $w->[0]->{email} ||= 'NOEMAIL';
+        $w->[0]->{title} ||= 'UNKNOWN';
 
         # Phonetools
         if ( $w->[0]->{email} =~ /amazon\.com/ ) {
@@ -67,7 +68,7 @@ sub listwho {
 sub loadproject {
     my $self = shift;
     my ($name) = @_;
-    my $f = $DATA . '/project/' . $name . '.yml';
+    my $f = $DATA . '/project/' . lc($name) . '.yml';
 
     if ( -e $f ) {
         my $proj = YAML::Tiny->read( $f );
@@ -81,7 +82,7 @@ sub loadproject {
 sub loadservice {
     my $self = shift;
     my ($name) = @_;
-    my $f = $DATA . '/service/' . $name . '.yml';
+    my $f = $DATA . '/service/' . lc($name) . '.yml';
 
     if ( -e $f ) {
         my $service = YAML::Tiny->read( $f );

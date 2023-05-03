@@ -25,12 +25,14 @@ EOW
         print "Projects:\n";
         foreach my $p ( @{$who->{projects}} ) {
             my $proj = WhosThat->loadproject( $p );
+            last unless $proj;
             print "\t" . $proj->{name} ."\n";
         }
 
         print "Services:\n";
         foreach my $s ( @{$who->{services}} ) {
             my $service = WhosThat->loadservice( $s );
+            last unless $service;
             print "\t" . $service->{name} ."\n";
         }
     }
