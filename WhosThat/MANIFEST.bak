@@ -1,9 +1,6 @@
 bin/whosthat
 Changes
 lib/WhosThat.pm
-lib/WhosThat/Project.pm
-lib/WhosThat/Service.pm
-lib/WhosThat/Who.pm
 Makefile.PL
 MANIFEST
 README

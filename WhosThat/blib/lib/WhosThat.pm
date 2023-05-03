@@ -26,7 +26,6 @@ our @EXPORT = qw(
 );
 
 our $VERSION = '0.01';
-our $DATA = '/home/rbowen/devel/whosthat/data';
 
 
 # Preloaded methods go here.
