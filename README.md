@@ -35,10 +35,8 @@ editwho brubble
 
 Edit their data file.
 
-## Install
+## TODO
 
-perl Makefile.PL
-make
-make test
-make install
+Add a team designation that isn't a project or a service. Or ... should
+we just rename service to team?
 

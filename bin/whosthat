@@ -41,7 +41,7 @@ EOW
         }
 
         if ( $who->{notes} ) {
-            print $who->{notes} . "\n\n";
+            print "\nNotes:\n" . $who->{notes} . "\n\n";
         }
     }
 }

@@ -98,6 +98,8 @@ sub loadproject {
     }
 }
 
+# Note, a "service" might also just be a team that doesn't run a
+# service, such as OSSM, or Legal
 sub loadservice {
     shift;
     my ($name) = @_;
@@ -112,5 +114,5 @@ sub loadservice {
     }
 }
 
-
 1;
+
