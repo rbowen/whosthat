@@ -23,14 +23,14 @@ our %EXPORT_TAGS = (
     ]
 );
 
+our $VERSION = '0.01';
+our $DATA    = '/home/rbowen/devel/whosthat/data';
+
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-
+    $DATA
 );
-
-our $VERSION = '0.01';
-our $DATA    = '/home/rbowen/whosthat/data';
 
 # Preloaded methods go here.
 

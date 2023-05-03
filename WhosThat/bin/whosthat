@@ -2,5 +2,23 @@
 use strict;
 use warnings;
 use WhosThat;
+use Text::Markdown;
 
-print "Yay\n";
+my $script = shift @ARGV;
+
+print "Data is in $DATA\n";
+
+# Check all of the people we know
+my $whodir = $DATA . '/who';
+opendir(DIR, $whodir) or die "Could not open $whodir\n";
+
+while (my $whofile = readdir(DIR)) {
+    next if $whofile =~ /^./;
+    next if $whofile =~ /template/;
+
+    print "$whofile\n";
+}
+
+closedir(DIR);
+
+

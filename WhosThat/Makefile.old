@@ -18,7 +18,7 @@
 #     EXE_FILES => [q[bin/whosthat]]
 #     LICENSE => q[apache]
 #     NAME => q[WhosThat]
-#     PREREQ_PM => { Test::More=>q[0] }
+#     PREREQ_PM => { Test::More=>q[0], Text::Markdown=>q[0] }
 #     TEST_REQUIRES => {  }
 #     VERSION_FROM => q[lib/WhosThat.pm]
 
@@ -520,6 +520,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '    - inc' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Test::More: '\''0'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Text::Markdown: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'version: '\''0.01'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'x_serialization_backend: '\''CPAN::Meta::YAML version 0.018'\''' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
@@ -558,7 +559,8 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      },' >> META_new.json
 	$(NOECHO) $(ECHO) '      "runtime" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '            "Test::More" : "0"' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Test::More" : "0",' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Text::Markdown" : "0"' >> META_new.json
 	$(NOECHO) $(ECHO) '         }' >> META_new.json
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
@@ -878,6 +880,7 @@ ppd :
 	$(NOECHO) $(ECHO) '    <AUTHOR>rbowen &lt;rbowen@rcbowen.com&gt;</AUTHOR>' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::More" />' >> WhosThat.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Text::Markdown" />' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-thread-multi-5.36" />' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> WhosThat.ppd
