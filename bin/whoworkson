@@ -1,0 +1,42 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use WhosThat;
+
+my $what = $ARGV[0];
+usage() unless $what;
+my @peeps = WhosThat::listwho();
+
+# Is that a project?
+if ( my $proj = WhosThat->loadproject($what) ) {
+    foreach my $who (@peeps) {
+        if ( grep( $who->{projects}, $what ) ) {
+            displaywho($who);
+        }
+    }
+
+# ... or a service?
+} elsif ( my $service = WhosThat->loadservice($what) ) {
+    foreach my $who (@peeps) {
+        if ( grep( $who->{services}, $what ) ) {
+            displaywho($who);
+        }
+    }
+} else {
+    print "Didn't find a project or service named that.\n";
+}
+
+sub usage {
+    print "Usage:\n\t$0 project_or_service_name\n";
+    exit();
+}
+
+sub displaywho {
+    my $who = shift;
+
+    print $who->{name} . " " . $who->{email};
+    if ( $who->{alias} ) {
+        print ' - https://phonetool.amazon.com/users/' . $who->{alias};
+    }
+    print "\n";
+}

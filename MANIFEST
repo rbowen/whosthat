@@ -1,4 +1,5 @@
 bin/whosthat
+bin/whoworkson
 Changes
 lib/WhosThat.pm
 Makefile.PL
