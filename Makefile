@@ -15,7 +15,7 @@
 #     AUTHOR => [q[rbowen <rbowen@rcbowen.com>]]
 #     BUILD_REQUIRES => {  }
 #     CONFIGURE_REQUIRES => {  }
-#     EXE_FILES => [q[bin/whosthat], q[bin/whoworkson], q[bin/addwho]]
+#     EXE_FILES => [q[bin/whosthat], q[bin/whoworkson], q[bin/addwho], q[bin/editwho]]
 #     LICENSE => q[apache]
 #     NAME => q[WhosThat]
 #     PREREQ_PM => { Test::More=>q[0], YAML::Tiny=>q[0] }
@@ -425,21 +425,27 @@ manifypods : pure_all config
 
 # --- MakeMaker installbin section:
 
-EXE_FILES = bin/addwho bin/whosthat bin/whoworkson
+EXE_FILES = bin/addwho bin/editwho bin/whosthat bin/whoworkson
 
-pure_all :: $(INST_SCRIPT)/addwho $(INST_SCRIPT)/whosthat $(INST_SCRIPT)/whoworkson
+pure_all :: $(INST_SCRIPT)/addwho $(INST_SCRIPT)/editwho $(INST_SCRIPT)/whosthat $(INST_SCRIPT)/whoworkson
 	$(NOECHO) $(NOOP)
 
 realclean ::
 	$(RM_F) \
-	  $(INST_SCRIPT)/addwho $(INST_SCRIPT)/whosthat \
-	  $(INST_SCRIPT)/whoworkson 
+	  $(INST_SCRIPT)/addwho $(INST_SCRIPT)/editwho \
+	  $(INST_SCRIPT)/whosthat $(INST_SCRIPT)/whoworkson 
 
 $(INST_SCRIPT)/addwho : bin/addwho $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/addwho
 	$(CP) bin/addwho $(INST_SCRIPT)/addwho
 	$(FIXIN) $(INST_SCRIPT)/addwho
 	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/addwho
+
+$(INST_SCRIPT)/editwho : bin/editwho $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/editwho
+	$(CP) bin/editwho $(INST_SCRIPT)/editwho
+	$(FIXIN) $(INST_SCRIPT)/editwho
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/editwho
 
 $(INST_SCRIPT)/whosthat : bin/whosthat $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/whosthat

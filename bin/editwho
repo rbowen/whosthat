@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use WhosThat;
+
+my @args = @ARGV;
+
+my $who = WhosThat->loadwho( $args[0] );
+if ( $who ) {
+    exec "vim ".$who->{filename};
+} else {
+    print "No such user.";
+}

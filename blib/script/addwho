@@ -1,0 +1,52 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use WhosThat;
+
+use Getopt::Long qw(GetOptions);
+
+my $help = 0;
+my ($name, $alias);
+
+GetOptions(
+    "help"    => \$help,
+    "alias=s" => \$alias,
+    "name=s"  => \$name,
+) or help();
+
+help() if $help;
+help() unless ($name && $alias );
+
+my $who  = { name => $name };
+my $yaml = YAML::Tiny->new(
+    {
+        name     => $name,
+        email    => $alias . '@amazon.com',
+        projects => ['fixme'],
+        services => ['fixme'],
+        notes    => "Notes",
+        title    => 'Fix Me',
+
+    }
+);
+
+my $f = $DATA . '/who/' . $alias . '.yml';
+$yaml->write( $f );
+
+exec "vim $f";
+
+
+sub help {
+    
+print qq~
+Usage:
+
+    addwho -n "Bob Marley" -a "bmarley"
+    addwho --name "Bob Marley" --alias "bmarley"
+
+    ... then finish updating the yaml file
+
+~;
+exit();
+
+}
