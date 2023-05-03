@@ -1,0 +1,9 @@
+---
+ name: Someone Else
+ projects: 
+  - flink
+ services:
+  - opensearch
+ notes: |
+  Seems like a nice guy
+

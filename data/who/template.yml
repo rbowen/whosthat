@@ -1,0 +1,12 @@
+---
+ name: Rich Bowen
+ email: rcbowen@amazon.com
+ projects:
+  - flink
+  - hadoop
+  - kafka
+ services:
+  - msk
+ notes: |
+   Notes go here
+   And here
