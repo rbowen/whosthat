@@ -16,25 +16,32 @@ GetOptions(
 
 help() if $help;
 help() unless ($name && $alias );
-
-my $who  = { name => $name };
-my $yaml = YAML::Tiny->new(
-    {
-        name     => $name,
-        email    => $alias . '@amazon.com',
-        projects => ['fixme'],
-        services => ['fixme'],
-        notes    => "Notes",
-        title    => 'Fix Me',
-
-    }
-);
-
 my $f = $DATA . '/who/' . $alias . '.yml';
-$yaml->write( $f );
 
-exec "vim $f";
+# Check if you already have this record
+if ( WhosThat->loadwho( $alias ) ) {
+    print "Record already exists\n";
+    sleep(1);
+    exec "vim $f";
+} else {
 
+    my $who  = { name => $name };
+    my $yaml = YAML::Tiny->new(
+        {
+            name     => $name,
+            email    => $alias . '@amazon.com',
+            projects => ['fixme'],
+            services => ['fixme'],
+            notes    => "Notes",
+            title    => 'Fix Me',
+
+        }
+    );
+
+    $yaml->write( $f );
+
+    exec "vim $f";
+}
 
 sub help {
     

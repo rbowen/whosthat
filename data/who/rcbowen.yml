@@ -1,9 +1,9 @@
 ---
  name: Rich Bowen
  email: rcbowen@amazon.com
- title: Principle Evangelist Open Source
+ title: Principal Evangelist Open Source
  projects:
-  - hadoop
+  - httpd
  services:
  notes: |
    Notes go here
