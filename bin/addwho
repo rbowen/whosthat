@@ -17,12 +17,13 @@ GetOptions(
 help() if $help;
 help() unless ($name && $alias );
 my $f = $DATA . '/who/' . $alias . '.yml';
+my $editor = $ENV{EDITOR} || 'vim';
 
 # Check if you already have this record
 if ( WhosThat->loadwho( $alias ) ) {
     print "Record already exists\n";
     sleep(1);
-    exec "vim $f";
+    exec "$editor $f";
 } else {
 
     my $who  = { name => $name };
@@ -40,7 +41,7 @@ if ( WhosThat->loadwho( $alias ) ) {
 
     $yaml->write( $f );
 
-    exec "vim $f";
+    exec "$editor $f";
 }
 
 sub help {
