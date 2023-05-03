@@ -13,11 +13,10 @@ whosthat <name>
   if found.
 
 Eventually, will also allow adding/editing of these things, but for now,
-we'll just manually edit .md files.
+we'll just manually edit yaml files.
 
 And there should be a simple web interface, on twist.rcbowen.com, where
 I can browse people, projects and services. Eventually. Not today.
 
 Ok, go.
-
 
