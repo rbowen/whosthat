@@ -24,7 +24,9 @@ my $yaml = YAML::Tiny->new(
         email    => $alias . '@amazon.com',
         projects => ['fixme'],
         services => ['fixme'],
-        notes    => "Notes"
+        notes    => "Notes",
+        title    => 'Fix Me',
+
     }
 );
 

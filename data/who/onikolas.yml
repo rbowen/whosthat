@@ -1,0 +1,9 @@
+---
+email: onikolas@amazon.com
+name: 'Niko Oliveira'
+title: Sr Software Dev Engineer, AWS Scheduling
+notes: Notes
+projects:
+  - airflow
+services:
+  - mwaa

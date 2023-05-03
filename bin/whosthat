@@ -39,6 +39,10 @@ EOW
             last unless $service;
             print "\t" . $service->{name} ."\n";
         }
+
+        if ( $who->{notes} ) {
+            print $who->{notes} . "\n\n";
+        }
     }
 }
 

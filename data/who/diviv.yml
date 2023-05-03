@@ -1,0 +1,8 @@
+---
+email: diviv@amazon.com
+name: 'Divij Vaidya'
+notes: Notes
+projects:
+  - kafka
+services:
+  - msk

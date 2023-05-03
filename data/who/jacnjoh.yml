@@ -1,0 +1,9 @@
+---
+email: jacnjoh@amazon.com
+name: John Jackson
+notes: Notes
+projects:
+  - airflow
+services:
+  - mwaa
+title: Principal Product Manager-Tech, AWS Scheduling 
