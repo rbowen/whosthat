@@ -19,3 +19,4 @@ MANIFEST
 README
 README.md
 t/WhosThat.t
+install.sh
