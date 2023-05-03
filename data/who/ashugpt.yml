@@ -1,0 +1,10 @@
+---
+email: ashugpt@amazon.com
+name: 'Ashutosh Gupta'
+notes: |
+  Is working on the Hadoop strategic project effort
+projects:
+  - hadoop
+services:
+  - fixme
+title: SDE II, Athena
