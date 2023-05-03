@@ -55,6 +55,7 @@ sub listwho {
         if ( $w->[0]->{email} =~ /amazon\.com/ ) {
             my ($alias) = ( $w->[0]->{email} =~ m/^(.*?)@/ );
             $w->[0]->{alias} = $alias;
+            $w->[0]->{phonetool} = 'https://phonetool.amazon.com/users/' . $w->[0]->{alias};
         }
 
         push @who, $w->[0];

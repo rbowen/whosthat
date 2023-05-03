@@ -22,6 +22,10 @@ Title: $who->{title}
 Email: $who->{email}
 EOW
 
+        if ( $who->{phonetool} ) {
+            print $who->{phonetool} . "\n";
+        }
+
         print "Projects:\n";
         foreach my $p ( @{$who->{projects}} ) {
             my $proj = WhosThat->loadproject( $p );

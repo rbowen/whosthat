@@ -10,9 +10,8 @@ data/service/msf.yml
 data/service/msk.yml
 data/service/template.yml
 data/who/.yml
-data/who/bmarley.yml
+data/who/diviv.yml
 data/who/rbowen.yml
-data/who/someone.yml
 data/who/template.yml
 lib/WhosThat.pm
 Makefile.PL

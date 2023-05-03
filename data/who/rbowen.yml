@@ -3,6 +3,7 @@
  email: rcbowen@amazon.com
  title: Principle Evangelist Open Source
  projects:
+  - hadoop
  services:
  notes: |
    Notes go here
