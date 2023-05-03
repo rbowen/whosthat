@@ -41,7 +41,7 @@ Usage:
     addwho -n "Bob Marley" -a "bmarley"
     addwho --name "Bob Marley" --alias "bmarley"
 
-    ... then finish updating the yaml file.
+    ... then finish updating the yaml file
 
 ~;
 exit();
