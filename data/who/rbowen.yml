@@ -1,9 +1,8 @@
 ---
  name: Rich Bowen
  email: rcbowen@amazon.com
+ title: Principle Evangelist Open Source
  projects:
-  - flink
-  - hadoop
   - kafka
  services:
   - msk

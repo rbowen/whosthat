@@ -6,18 +6,14 @@ use YAML::Tiny;
 use Data::Dumper;
 
 my @args = @ARGV;
-print Dumper( @args );
-
-print "Data is in $DATA\n";
 
 # Check all of the people we know
 my $whodir = $DATA . '/who';
 opendir(DIR, $whodir) or die "Could not open $whodir\n";
 
-while (my $whofile = readdir(DIR)) {
+while ( my $whofile = readdir(DIR) ) {
     next if $whofile =~ m/^\./;
     next if $whofile =~ m/template/;
-    print "$whofile\n";
 
     # slurp
     my $who = YAML::Tiny->read( $DATA . '/who/' . $whofile );
@@ -26,10 +22,29 @@ while (my $whofile = readdir(DIR)) {
     if (    # Name
         $who->[0]->{name} =~ /@args/i
         ||    #Email
-        $who->[0]->{email} =~ /@args/i
+        ( defined $who->[0]->{email} && $who->[0]->{email} =~ /@args/i )
       )
     {
-        print Dumper($who);
+        print <<EOW;
+
+Name: $who->[0]->{name}
+Title: $who->[0]->{title}
+Email: $who->[0]->{email}
+EOW
+
+        print "Projects:\n";
+        foreach my $p ( @{$who->[0]->{projects}} ) {
+            my $proj = YAML::Tiny->read( $DATA .'/project/' . $p .  '.yml' );
+            print "\t" . $proj->[0]->{name} ."\n";
+        }
+
+        print "Services:\n";
+        foreach my $p ( @{$who->[0]->{services}} ) {
+            my $service= YAML::Tiny->read( $DATA .'/service/' . $p .  '.yml' );
+            print "\t" . $service->[0]->{name} ."\n";
+        }
+
+
     }
 }
 

@@ -20,6 +20,11 @@ I can browse people, projects and services. Eventually. Not today.
 
 Ok, go.
 
+whoworkson <name>
+
+Will look for either a SERVICE or a PROJECT called *name* and tell you
+who works on that.
+
 ## Install
 
 perl Makefile.PL
