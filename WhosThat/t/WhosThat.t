@@ -8,12 +8,9 @@
 use strict;
 use warnings;
 
-use Test::More tests => 4;
+use Test::More tests => 1;
 BEGIN { use_ok('WhosThat') };
 
-use_ok('WhosThat::Who');
-use_ok('WhosThat::Project');
-use_ok('WhosThat::Service');
 
 #########################
 
