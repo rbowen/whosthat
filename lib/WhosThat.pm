@@ -25,7 +25,7 @@ our %EXPORT_TAGS = (
 );
 
 our $VERSION = '0.01';
-our $DATA    = '/home/rbowen/devel/whosthat/data';
+our $DATA    = '/home/rbowen/Dropbox/whosthat';
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
