@@ -4,3 +4,13 @@ Revision history for Perl extension WhosThat.
 	- original version; created by h2xs 1.23 with options
 		-AX -n WhosThat
 
+0.05 Thu May 4 09:59 2023
+    - Data is stored in YAML files, which you can put in (for example)
+      Dropbox to sync to various machines
+    - Provides four simple tools - whosthat, whoworkson, addwho and
+      editwho, to manage your contact records.
+    - team and project data is still manually added and edited. This
+      could presumably be fixed at some point, but isn't a high priority
+      for me.
+    - Pushed everything out to Github. Patches welcome.
+

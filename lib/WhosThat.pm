@@ -29,7 +29,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
     $DATA $DOMAIN
 );
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 
 # Returns a list of who hashes
 sub listwho {
