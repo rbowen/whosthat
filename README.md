@@ -81,9 +81,11 @@ complain at you.
 Note that by default it gives them an @amazon.com email address. You can
 fix that in lib/WhosThat.pm by editing the $DOMAIN variable.
 
-### editwho brubble
+### editwho <who>
 
-Calm down. This just edits their data file in $EDITOR
+    editwho brubble
+
+Calm down. Nothing fancy. This just edits their data file in $EDITOR
 
 ### TODO
 
