@@ -1,5 +1,4 @@
 package WhosThat;
-
 use 5.036001;
 use strict;
 use warnings;
@@ -9,7 +8,9 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-our $VERSION = '0.01';
+#######################################################
+## Set these variables correctly before installing!  ##
+#######################################################
 our $DATA    = '/home/rbowen/Dropbox/whosthat';
 our $DOMAIN  = 'amazon.com'; # Default email domain for new records
 
@@ -28,6 +29,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
     $DATA $DOMAIN
 );
+our $VERSION = '0.03';
 
 # Returns a list of who hashes
 sub listwho {
