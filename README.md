@@ -4,9 +4,22 @@ Barebones CRM for tracking people, projects, and AWS service teams.
 
 With any luck, it will do more, eventually.
 
+## Installing
+
+Installing is a little manual for now. Maybe I'll fix that some day.
+
+Edit lib/WhosThat.pm and set the $DATA variable to where you'd like to
+store your data. In that directory:
+
+mkdir who
+mkdir project
+mkdir service
+
+Then run install.sh
+
 ## Usage
 
-whosthat <name>
+### whosthat <name>
 
 * Will list contact details for name, if found.
 * Will list information, and a list of people, for a project or service,
@@ -20,20 +33,24 @@ I can browse people, projects and services. Eventually. Not today.
 
 Ok, go.
 
-whoworkson <name>
+### whoworkson <name>
 
 Will look for either a SERVICE or a PROJECT called *name* and tell you
 who works on that.
+
+### addwho
 
 addwho --name "Barney Rubble" --alias brubble
 or
 addwho -n "Barney Rubble" -a brubble
 
-Adds a new record for that invidual
+Adds a new record for that invidual, and then opens it in $EDITOR for
+further details. `alias` is usually an email address, and is used as the
+name of the data file, so must be unique.
 
-editwho brubble
+### editwho brubble
 
-Edit their data file.
+Edit their data file in $EDITOR
 
 ## TODO
 
