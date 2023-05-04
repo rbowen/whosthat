@@ -39,8 +39,11 @@ EOW
         print "Services or Teams:\n";
         foreach my $s ( @{$who->{services}} ) {
             my $service = WhosThat->loadservice( $s );
-            last unless $service;
-            print "\t" . $service->{name} ."\n";
+            if ($service) {
+                print "\t" . $service->{name} . "\n";
+            } else {
+                print "\t" . $s . "\n" unless $s =~ /fixme/;
+            }
         }
 
         if ( $who->{notes} ) {
