@@ -166,7 +166,7 @@ C_FILES  =
 O_FILES  = 
 H_FILES  = 
 MAN1PODS = 
-MAN3PODS = 
+MAN3PODS = lib/WhosThat.pm
 
 # Where is the Config information that we are using/depend on
 CONFIGDEP = $(PERL_ARCHLIBDEP)$(DFSEP)Config.pm $(PERL_INCDEP)$(DFSEP)config.h
@@ -413,8 +413,10 @@ POD2MAN_EXE = $(PERLRUN) "-MExtUtils::Command::MM" -e pod2man "--"
 POD2MAN = $(POD2MAN_EXE)
 
 
-manifypods : pure_all config 
-	$(NOECHO) $(NOOP)
+manifypods : pure_all config  \
+	lib/WhosThat.pm
+	$(NOECHO) $(POD2MAN) --section=$(MAN3SECTION) --perm_rw=$(PERM_RW) -u \
+	  lib/WhosThat.pm $(INST_MAN3DIR)/WhosThat.$(MAN3EXT) 
 
 
 
@@ -517,7 +519,7 @@ realclean purge :: realclean_subdirs
 metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
 	$(NOECHO) $(ECHO) '---' > META_new.yml
-	$(NOECHO) $(ECHO) 'abstract: unknown' >> META_new.yml
+	$(NOECHO) $(ECHO) 'abstract: '\''utility functions for the WhosThat simplest-possible CRM.'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'author:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  - '\''rbowen <rbowen@rcbowen.com>'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
@@ -543,7 +545,7 @@ metafile : create_distdir
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
-	$(NOECHO) $(ECHO) '   "abstract" : "unknown",' >> META_new.json
+	$(NOECHO) $(ECHO) '   "abstract" : "utility functions for the WhosThat simplest-possible CRM.",' >> META_new.json
 	$(NOECHO) $(ECHO) '   "author" : [' >> META_new.json
 	$(NOECHO) $(ECHO) '      "rbowen <rbowen@rcbowen.com>"' >> META_new.json
 	$(NOECHO) $(ECHO) '   ],' >> META_new.json
@@ -893,7 +895,7 @@ testdb_static :: static pure_all
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
 	$(NOECHO) $(ECHO) '<SOFTPKG NAME="WhosThat" VERSION="0.01">' > WhosThat.ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> WhosThat.ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT>utility functions for the WhosThat simplest-possible CRM.</ABSTRACT>' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>rbowen &lt;rbowen@rcbowen.com&gt;</AUTHOR>' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> WhosThat.ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Test::More" />' >> WhosThat.ppd

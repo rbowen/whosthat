@@ -115,4 +115,33 @@ sub loadservice {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+WhosThat - utility functions for the WhosThat simplest-possible CRM.
+
+=head1 SYNOPSIS
+
+ use WhatsThat;
+
+=head1 DESCRIPTION
+
+Provides simple functions for loading people, projects, and
+services/teams, for the 'whosthat' and 'whoworkson' commandline
+utilities.
+
+=head1 AUTHOR
+
+rbowen <rbowen@rcbowen.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2023 by Rich Bowen
+
+This entire package is free software under the Apache License 2.0. See
+LICENSE.
+
+=cut
+
 
