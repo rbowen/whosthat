@@ -9,13 +9,11 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-# Items to export into callers namespace by default. Note: do not export
-# names by default without a very good reason. Use EXPORT_OK instead.
-# Do not simply export all your public functions/methods/constants.
+our $VERSION = '0.01';
+our $DATA    = '/home/rbowen/Dropbox/whosthat';
+our $DOMAIN  = 'amazon.com'; # Default email domain for new records
 
-# This allows declaration	use WhosThat ':all';
-# If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
-# will save memory.
+# Doesn't export any functions, for now
 our %EXPORT_TAGS = (
     'all' => [
         qw(
@@ -24,13 +22,11 @@ our %EXPORT_TAGS = (
     ]
 );
 
-our $VERSION = '0.01';
-our $DATA    = '/home/rbowen/Dropbox/whosthat';
-
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
+# Global variables. Sue me.
 our @EXPORT = qw(
-    $DATA
+    $DATA $DOMAIN
 );
 
 # Returns a list of who hashes
@@ -55,7 +51,7 @@ sub listwho {
         # Convenience
         $w->[0]->{filename} = $f;
 
-        # Phonetools
+        # @amazon.com specific handling
         if ( $w->[0]->{email} =~ /amazon\.com/ ) {
             my ($alias) = ( $w->[0]->{email} =~ m/^(.*?)@/ );
             $w->[0]->{alias} = $alias;

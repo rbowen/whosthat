@@ -27,10 +27,12 @@ if ( WhosThat->loadwho( $alias ) ) {
 } else {
 
     my $who  = { name => $name };
+
+    # Create starter record with default values
     my $yaml = YAML::Tiny->new(
         {
             name     => $name,
-            email    => $alias . '@amazon.com',
+            email    => $alias . '@' . $DOMAIN,
             projects => ['fixme'],
             teams    => ['fixme'],
             notes    => '',

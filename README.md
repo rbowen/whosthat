@@ -4,6 +4,14 @@ Barebones CRM for tracking people, projects, and work teams.
 
 With any luck, it will do more, eventually.
 
+# Summary
+
+    whosthat rcbowen <-- Details about person
+    whoworkson airflow <-- list of people on that project or team
+    addwho --name "Bob Marley" --alias bmarley <-- Creates a new person
+        record
+    editwho bmarley <-- Edits that user record
+
 ## Installing
 
 Installing is a little manual for now. Maybe I'll fix that some day.
@@ -22,21 +30,17 @@ store your data. In that directory:
 
 Then run install.sh
 
+You will need to manually create team and project YAML files for now.
+There's sample records in the sampledata directory.
+
 ## Usage
 
 ### whosthat <name>
 
-* Will list contact details for name, if found.
-* Will list information, and a list of people, for a project or team,
-  if found.
+Will list contact details for name, if found.
 
-Eventually, will also allow adding/editing of these things, but for now,
-we'll just manually edit yaml files.
-
-And there should be a simple web interface, on twist.rcbowen.com, where
-I can browse people, projects and team. Eventually. Not today.
-
-Ok, go.
+If its an @amazon.com email address, will provide a link to their
+internal informational record.
 
 ### whoworkson <name>
 
@@ -51,14 +55,18 @@ addwho -n "Barney Rubble" -a brubble
 
 Adds a new record for that invidual, and then opens it in $EDITOR for
 further details. `alias` is usually an email address, and is used as the
-name of the data file, so must be unique.
+name of the data file, so must be unique. If it's not unique, it will
+complain at you.
+
+Note that by default it gives them an @amazon.com email address.
 
 ### editwho brubble
 
-Edit their data file in $EDITOR
+Calm down. This just edits their data file in $EDITOR
 
 ### TODO
 
-For now, you'll need to manually create any team and project YAML files.
-See the sampledata directory for what this should look like.
+For now, this does exactly what I want it to do. I expect over time I'll
+want more functionality, but simple is good. Tickets and pull requests
+welcome.
 
