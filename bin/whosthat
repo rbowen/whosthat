@@ -37,10 +37,10 @@ EOW
         }
 
         print "Services or Teams:\n";
-        foreach my $s ( @{$who->{services}} ) {
-            my $service = WhosThat->loadservice( $s );
-            if ($service) {
-                print "\t" . $service->{name} . "\n";
+        foreach my $s ( @{$who->{teams}} ) {
+            my $team = WhosThat->loadteam( $s );
+            if ($team) {
+                print "\t" . $team->{name} . "\n";
             } else {
                 print "\t" . $s . "\n" unless $s =~ /fixme/;
             }

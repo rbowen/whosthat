@@ -98,18 +98,18 @@ sub loadproject {
     }
 }
 
-# Note, a "service" might also just be a team that doesn't run a
-# service, such as OSSM, or Legal
-sub loadservice {
+# A team is a group, or department, or other group that an individual
+# works with. Someone can be on multiple teams.
+sub loadteam {
     shift;
     my ($name) = @_;
-    my $f = $DATA . '/service/' . lc($name) . '.yml';
+    my $f = $DATA . '/team/' . lc($name) . '.yml';
 
     if ( -e $f ) {
-        my $service = YAML::Tiny->read( $f );
-        return $service->[0];
+        my $team = YAML::Tiny->read( $f );
+        return $team->[0];
     } else {
-        # warn("No service named $name\n");
+        # warn("No team named $name\n");
         return 0;
     }
 }
@@ -128,7 +128,7 @@ WhosThat - utility functions for the WhosThat simplest-possible CRM.
 =head1 DESCRIPTION
 
 Provides simple functions for loading people, projects, and
-services/teams, for the 'whosthat' and 'whoworkson' commandline
+teams, for the 'whosthat' and 'whoworkson' commandline
 utilities.
 
 =head1 AUTHOR

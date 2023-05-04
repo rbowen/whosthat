@@ -32,7 +32,7 @@ if ( WhosThat->loadwho( $alias ) ) {
             name     => $name,
             email    => $alias . '@amazon.com',
             projects => ['fixme'],
-            services => ['fixme'],
+            teams    => ['fixme'],
             notes    => '',
             title    => 'fixme',
 

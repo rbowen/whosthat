@@ -16,20 +16,20 @@ if ( my $proj = WhosThat->loadproject($what) ) {
         }
     }
 
-# ... or a service?
-} elsif ( my $service = WhosThat->loadservice($what) ) {
+# ... or a team?
+} elsif ( my $team = WhosThat->loadteam($what) ) {
     foreach my $who (@peeps) {
-        if ( grep( /$what/i, @{$who->{services}} ) ) {
+        if ( grep( /$what/i, @{$who->{teams}} ) ) {
             displaywho($who);
         }
     }
 } else {
-    print "Didn't find a project, service, or team named that.\n";
+    print "Didn't find a project or team named that.\n";
 }
 print "\n";
 
 sub usage {
-    print "Usage:\n\t$0 project_or_service_name\n";
+    print "Usage:\n\t$0 project_or_team_name\n";
     exit();
 }
 
