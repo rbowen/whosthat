@@ -8,12 +8,17 @@ With any luck, it will do more, eventually.
 
 Installing is a little manual for now. Maybe I'll fix that some day.
 
+You'll need Perl, and a handful of modules
+
+  cpan install Test::More
+  cpan install YAML::Tiny
+
 Edit lib/WhosThat.pm and set the $DATA variable to where you'd like to
 store your data. In that directory:
 
-mkdir who
-mkdir project
-mkdir  team
+    mkdir who
+    mkdir project
+    mkdir team
 
 Then run install.sh
 
@@ -51,4 +56,9 @@ name of the data file, so must be unique.
 ### editwho brubble
 
 Edit their data file in $EDITOR
+
+### TODO
+
+For now, you'll need to manually create any team and project YAML files.
+See the sampledata directory for what this should look like.
 
