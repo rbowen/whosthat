@@ -47,7 +47,7 @@ internal informational record.
 
 ### whoworkson <name>
 
-Will look for either a SERVICE or a PROJECT called *name* and tell you
+Will look for either a TEAM or a PROJECT called *name* and tell you
 who works on that.
 
 ### addwho
