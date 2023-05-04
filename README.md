@@ -15,32 +15,34 @@ that's how old I am.
 
 ## Installing
 
-Installing is a little manual for now. Maybe I'll fix that some day.
+Installing is a little manual for now. I'll fix that some day.
 
-You'll need Perl, and a handful of modules
+1. You'll need Perl, and a handful of modules
 
     cpan install Test::More
     cpan install YAML::Tiny
 
-Edit lib/WhosThat.pm and set the $DATA variable to where you'd like to
+2. Edit lib/WhosThat.pm and set the $DATA variable to where you'd like to
 store your data. In that directory:
 
     mkdir who
     mkdir project
     mkdir team
 
-Sample data can be found in the sampledata/ directory.
+Sample data can be found in the sampledata/ directory. I store my data
+files in Dropbox, so that it get sync'ed between my various systems.
 
-Then run `install.sh`.  This will install the scripts in your
+3. Then run `install.sh`.  This will install the scripts in your
 `~/perl5/bin` directory if you run it as you, and in the system
 `perl5/bin` directory if you run it as root. That's probably in your
 path, but if it's not, you may need to fix that.
 
+e.g., by adding the following to your .bashrc
+
+    export PATH="$PATH:$HOME/perl5/bin"
+
 If there are any messages that indicate that a test
 failed, you probably didn't create the data directories.
-
-
-You will need to manually create team and project YAML files for now.
 
 ## Upgrading
 
