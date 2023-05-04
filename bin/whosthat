@@ -36,7 +36,7 @@ EOW
             }
         }
 
-        print "Services or Teams:\n";
+        print "Teams:\n";
         foreach my $s ( @{$who->{teams}} ) {
             my $team = WhosThat->loadteam( $s );
             if ($team) {
