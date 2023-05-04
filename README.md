@@ -2,7 +2,8 @@
 
 Barebones CRM for tracking people, projects, and work teams.
 
-With any luck, it will do more, eventually.
+With any luck, it will do more, eventually. Yes, it's in Perl, because
+that's how old I am.
 
 # Summary
 
@@ -18,8 +19,8 @@ Installing is a little manual for now. Maybe I'll fix that some day.
 
 You'll need Perl, and a handful of modules
 
-  cpan install Test::More
-  cpan install YAML::Tiny
+    cpan install Test::More
+    cpan install YAML::Tiny
 
 Edit lib/WhosThat.pm and set the $DATA variable to where you'd like to
 store your data. In that directory:
@@ -28,10 +29,12 @@ store your data. In that directory:
     mkdir project
     mkdir team
 
-Then run install.sh
+Sample data can be found in the sampledata/ directory.
+
+Then run install.sh. If there are any messages that indicate that a test
+failed, you probably didn't create the data directories.
 
 You will need to manually create team and project YAML files for now.
-There's sample records in the sampledata directory.
 
 ## Usage
 
@@ -49,16 +52,19 @@ who works on that.
 
 ### addwho
 
-addwho --name "Barney Rubble" --alias brubble
+    addwho --name "Barney Rubble" --alias brubble
+
 or
-addwho -n "Barney Rubble" -a brubble
+
+    addwho -n "Barney Rubble" -a brubble
 
 Adds a new record for that invidual, and then opens it in $EDITOR for
 further details. `alias` is usually an email address, and is used as the
 name of the data file, so must be unique. If it's not unique, it will
 complain at you.
 
-Note that by default it gives them an @amazon.com email address.
+Note that by default it gives them an @amazon.com email address. You can
+fix that in lib/WhosThat.pm by editing the $DOMAIN variable.
 
 ### editwho brubble
 
