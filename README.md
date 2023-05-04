@@ -31,10 +31,23 @@ store your data. In that directory:
 
 Sample data can be found in the sampledata/ directory.
 
-Then run install.sh. If there are any messages that indicate that a test
+Then run `install.sh`.  This will install the scripts in your
+`~/perl5/bin` directory if you run it as you, and in the system
+`perl5/bin` directory if you run it as root. That's probably in your
+path, but if it's not, you may need to fix that.
+
+If there are any messages that indicate that a test
 failed, you probably didn't create the data directories.
 
+
 You will need to manually create team and project YAML files for now.
+
+## Upgrading
+
+If there's a new version, you can just
+
+    git pull
+    ./install.sh
 
 ## Usage
 
