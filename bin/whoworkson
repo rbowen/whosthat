@@ -8,24 +8,13 @@ usage() unless $ARGV[0];
 my $what = lc($ARGV[0]);
 my @peeps = WhosThat::listwho();
 
-# Is that a project?
-if ( my $proj = WhosThat->loadproject($what) ) {
     foreach my $who (@peeps) {
-        if ( grep( /$what/i, @{$who->{projects}} ) ) {
+        if ( grep( /$what/i, @{$who->{projects}} ) 
+            ||
+             grep( /$what/i, @{$who->{teams}} ) ) {
             displaywho($who);
         }
     }
-
-# ... or a team?
-} elsif ( my $team = WhosThat->loadteam($what) ) {
-    foreach my $who (@peeps) {
-        if ( grep( /$what/i, @{$who->{teams}} ) ) {
-            displaywho($who);
-        }
-    }
-} else {
-    print "Didn't find a project or team named that.\n";
-}
 print "\n";
 
 sub usage {
