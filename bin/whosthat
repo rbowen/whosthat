@@ -28,7 +28,7 @@ EOW
 
         print "Projects:\n";
         foreach my $p ( @{$who->{projects}} ) {
-            my $proj = WhosThat->loadproject( $p );
+            my $proj = WhosThat->loadproject( lc($p) );
             if ( $proj ) {
                 print "\t" . $proj->{name} ."\n";
             } else {
@@ -38,7 +38,7 @@ EOW
 
         print "Teams:\n";
         foreach my $s ( @{$who->{teams}} ) {
-            my $team = WhosThat->loadteam( $s );
+            my $team = WhosThat->loadteam( lc($s) );
             if ($team) {
                 print "\t" . $team->{name} . "\n";
             } else {
